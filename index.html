@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Peter Galenko - Full-Stack Developer & QA Engineer з Києва, Україна">
+    <title>Peter Galenko | Full-Stack Developer & QA Engineer</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <!-- Custom CSS -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .bg-pattern {
+                background-color: #0f172a;
+                background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+                background-size: 20px 20px;
+            }
+        }
+    </style>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
+</head>
+<body class="bg-pattern text-gray-100 font-sans">
+    <!-- Language Switcher (Fixed) -->
+    <div class="fixed top-4 right-4 z-50 flex space-x-2">
+        <button id="lang-ua" class="bg-primary-700 px-3 py-1 rounded text-sm font-medium hover:bg-primary-600 transition active">UA</button>
+        <button id="lang-en" class="bg-secondary-800 px-3 py-1 rounded text-sm font-medium hover:bg-secondary-700 transition">EN</button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="lg:hidden fixed bottom-0 left-0 right-0 bg-secondary-900/80 backdrop-blur-md z-40 border-t border-secondary-800">
+        <ul class="flex justify-around text-xs">
+            <li>
+                <a href="#about" class="flex flex-col items-center py-3 text-primary-400">
+                    <i class="fas fa-user text-lg mb-1"></i>
+                    <span data-lang="ua">Про мене</span>
+                    <span data-lang="en" class="hidden">About</span>
+                </a>
+            </li>
+            <li>
+                <a href="#resume" class="flex flex-col items-center py-3 text-gray-400 hover:text-primary-400 transition">
+                    <i class="fas fa-graduation-cap text-lg mb-1"></i>
+                    <span data-lang="ua">Резюме</span>
+                    <span data-lang="en" class="hidden">Resume</span>
+                </a>
+            </li>
+            <li>
+                <a href="#portfolio" class="flex flex-col items-center py-3 text-gray-400 hover:text-primary-400 transition">
+                    <i class="fas fa-briefcase text-lg mb-1"></i>
+                    <span data-lang="ua">Портфоліо</span>
+                    <span data-lang="en" class="hidden">Portfolio</span>
+                </a>
+            </li>
+            <li>
+                <a href="#contact" class="flex flex-col items-center py-3 text-gray-400 hover:text-primary-400 transition">
+                    <i class="fas fa-envelope text-lg mb-1"></i>
+                    <span data-lang="ua">Контакти</span>
+                    <span data-lang="en" class="hidden">Contact</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container mx-auto px-4 lg:px-0 py-8 lg:py-16 mb-24 lg:mb-0">
+        <div class="lg:flex lg:gap-8">
+            <!-- Sidebar for Desktop -->
+            <aside class="hidden lg:block lg:w-1/4 bg-secondary-800/50 backdrop-blur-md p-6 rounded-2xl sticky top-10 self-start">
+                <div class="flex flex-col items-center mb-6">
+                    <img src="./assets/images/avatar.jpg" alt="Peter Galenko" class="w-32 h-32 rounded-full border-4 border-primary-600 mb-4 object-cover">
+                    <h1 class="text-2xl font-bold">Peter Galenko</h1>
+                    <p class="text-primary-400 font-medium">Full-Stack Developer & QA Engineer</p>
+                </div>
+
+                <div class="border-t border-secondary-700 my-4"></div>
+
+                <!-- Desktop Navigation -->
+                <nav>
+                    <ul class="space-y-2">
+                        <li>
+                            <a href="#about" class="flex items-center space-x-3 p-2 rounded-lg bg-primary-700/20 text-primary-400 hover:bg-primary-700/30 transition">
+                                <i class="fas fa-user"></i>
+                                <span data-lang="ua">Про мене</span>
+                                <span data-lang="en" class="hidden">About</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#resume" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-secondary-700/30 transition">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span data-lang="ua">Резюме</span>
+                                <span data-lang="en" class="hidden">Resume</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-secondary-700/30 transition">
+                                <i class="fas fa-briefcase"></i>
+                                <span data-lang="ua">Портфоліо</span>
+                                <span data-lang="en" class="hidden">Portfolio</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-secondary-700/30 transition">
+                                <i class="fas fa-envelope"></i>
+                                <span data-lang="ua">Контакти</span>
+                                <span data-lang="en" class="hidden">Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="border-t border-secondary-700 my-4"></div>
+
+                <!-- Contact Information -->
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-envelope-open-text mt-1 text-primary-400"></i>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase tracking-wide">Email</p>
+                            <a href="mailto:galenkorp@gmail.com" class="hover:text-primary-400 transition">galenkorp@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-phone-alt mt-1 text-primary-400"></i>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase tracking-wide" data-lang="ua">Телефон</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-wide hidden" data-lang="en">Phone</p>
+                            <a href="tel:+380988964479" class="hover:text-primary-400 transition">+38 098 896 4479</a>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-map-marker-alt mt-1 text-primary-400"></i>
+                        <div>
+                            <p class="text-xs text-gray-400 uppercase tracking-wide" data-lang="ua">Місцезнаходження</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-wide hidden" data-lang="en">Location</p>
+                            <p data-lang="ua">Київ, Україна</p>
+                            <p data-lang="en" class="hidden">Kyiv, Ukraine</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-secondary-700 my-4"></div>
+
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-4">
+                    <a href="https://github.com/yourusername" target="_blank" class="h-9 w-9 rounded-full bg-secondary-700 flex items-center justify-center hover:bg-primary-700 transition">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="h-9 w-9 rounded-full bg-secondary-700 flex items-center justify-center hover:bg-primary-700 transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://t.me/yourusername" target="_blank" class="h-9 w-9 rounded-full bg-secondary-700 flex items-center justify-center hover:bg-primary-700 transition">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="lg:w-3/4 mt-8 lg:mt-0">
+                <!-- About Section -->
+                <section id="about" class="mb-16">
+                    <div class="bg-secondary-800/50 backdrop-blur-md rounded-2xl p-6 lg:p-8">
+                        <h2 class="text-2xl font-bold mb-6 border-b border-secondary-700 pb-3">
+                            <span data-lang="ua">Про мене</span>
+                            <span data-lang="en" class="hidden">About me</span>
+                        </h2>
+
+                        <!-- Mobile Profile (only visible on mobile) -->
+                        <div class="flex items-center mb-6 lg:hidden">
+                            <img src="./assets/images/avatar.jpg" alt="Peter Galenko" class="w-20 h-20 rounded-full border-2 border-primary-600 mr-4 object-cover">
+                            <div>
+                                <h1 class="text-xl font-bold">Peter Galenko</h1>
+                                <p class="text-primary-400">Full-Stack Developer & QA Engineer</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-4">
+                            <p data-lang="ua">
+                                Інноваційний Full-Stack Developer та QA Engineer з досвідом у розробці високонавантажених веб-додатків, тестуванні та впровадженні ефективних цифрових рішень. Спеціалізуюся на створенні PWA-додатків, модульних CRM-систем, інтеграції Google Maps API та захисті API.
+                            </p>
+                            <p data-lang="en" class="hidden">
+                                Innovative Full-Stack Developer and QA Engineer with experience in developing high-load web applications, testing, and implementing effective digital solutions. I specialize in creating PWA applications, modular CRM systems, Google Maps API integration, and API security.
+                            </p>
+                            
+                            <p data-lang="ua">
+                                Вміло поєдную навички Frontend і Backend розробки для створення продуктивних та зручних у користуванні веб-додатків. Постійно вдосконалюю свої технічні навички та слідкую за новими технологіями у галузі веб-розробки.
+                            </p>
+                            <p data-lang="en" class="hidden">
+                                I skillfully combine Frontend and Backend development skills to create productive and user-friendly web applications. I constantly improve my technical skills and follow new technologies in the field of web development.
+                            </p>
+                        </div>
+
+                        <!-- Skills -->
+                        <div class="mt-8">
+                            <h3 class="text-xl font-semibold mb-6">
+                                <span data-lang="ua">Мої навички</span>
+                                <span data-lang="en" class="hidden">My skills</span>
+                            </h3>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Skill 1: Frontend -->
+                                <div class="bg-secondary-700/30 rounded-xl p-5 border border-secondary-700/50 hover:border-primary-600/50 transition">
+                                    <div class="flex items-center mb-3">
+                                        <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
+                                            <i class="fas fa-code text-primary-400"></i>
+                                        </div>
+                                        <h4 class="text-lg font-medium">
+                                            <span data-lang="ua">Frontend Розробка</span>
+                                            <span data-lang="en" class="hidden">Frontend Development</span>
+                                        </h4>
+                                    </div>
+                                    <p class="text-gray-400" data-lang="ua">Vue.js, Tailwind CSS, HTML, CSS, JavaScript, адаптивна верстка</p>
+                                    <p class="text-gray-400 hidden" data-lang="en">Vue.js, Tailwind CSS, HTML, CSS, JavaScript, responsive design</p>
+                                </div>
+
+                                <!-- Skill 2: Backend -->
+                                <div class="bg-secondary-700/30 rounded-xl p-5 border border-secondary-700/50 hover:border-primary-600/50 transition">
+                                    <div class="flex items-center mb-3">
+                                        <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
+                                            <i class="fas fa-database text-primary-400"></i>
+                                        </div>
+                                        <h4 class="text-lg font-medium">
+                                            <span data-lang="ua">Backend Розробка</span>
+                                            <span data-lang="en" class="hidden">Backend Development</span>
+                                        </h4>
+                                    </div>
+                                    <p class="text-gray-400" data-lang="ua">PHP (Laravel), MySQL, REST API, безпека додатків</p>
+                                    <p class="text-gray-400 hidden" data-lang="en">PHP (Laravel), MySQL, REST API, application security</p>
+                                </div>
+
+                                <!-- Skill 3: QA Testing -->
+                                <div class="bg-secondary-700/30 rounded-xl p-5 border border-secondary-700/50 hover:border-primary-600/50 transition">
+                                    <div class="flex items-center mb-3">
+                                        <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
+                                            <i class="fas fa-bug text-primary-400"></i>
+                                        </div>
+                                        <h4 class="text-lg font-medium">
+                                            <span data-lang="ua">Тестування та QA</span>
+                                            <span data-lang="en" class="hidden">Testing and QA</span>
+                                        </h4>
+                                    </div>
+                                    <p class="text-gray-400" data-lang="ua">Selenium, Jira, TestRail, Postman, автоматизоване тестування</p>
+                                    <p class="text-gray-400 hidden" data-lang="en">Selenium, Jira, TestRail, Postman, automated testing</p>
+                                </div>
+
+                                <!-- Skill 4: PWA -->
+                                <div class="bg-secondary-700/30 rounded-xl p-5 border border-secondary-700/50 hover:border-primary-600/50 transition">
+                                    <div class="flex items-center mb-3">
+                                        <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
+                                            <i class="fas fa-mobile-alt text-primary-400"></i>
+                                        </div>
+                                        <h4 class="text-lg font-medium">
+                                            <span data-lang="ua">PWA Розробка</span>
+                                            <span data-lang="en" class="hidden">PWA Development</span>
+                                        </h4>
+                                    </div>
+                                    <p class="text-gray-400" data-lang="ua">Progressive Web Apps, оффлайн-функціональність, швидке завантаження</p>
+                                    <p class="text-gray-400 hidden" data-lang="en">Progressive Web Apps, offline functionality, fast loading</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Technologies -->
+                        <div class="mt-10">
+                            <h3 class="text-xl font-semibold mb-6">
+                                <span data-lang="ua">Технології</span>
+                                <span data-lang="en" class="hidden">Technologies</span>
+                            </h3>
+
+                            <div class="flex flex-wrap gap-6 justify-center">
+                                <div class="bg-secondary-800/80 p-5 rounded-lg flex flex-col items-center hover:bg-secondary-700/80 transition">
+                                    <img src="./assets/images/tech-vue.png" alt="Vue.js" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
+                                    <span class="text-sm">Vue.js</span>
+                                </div>
+                                <div class="bg-secondary-800/80 p-5 rounded-lg flex flex-col items-center hover:bg-secondary-700/80 transition">
+                                    <img src="./assets/images/tech-laravel.png" alt="Laravel" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
+                                    <span class="text-sm">Laravel</span>
+                                </div>
+                                <div class="bg-secondary-800/80 p-5 rounded-lg flex flex-col items-center hover:bg-secondary-700/80 transition">
+                                    <img src="./assets/images/tech-tailwind.png" alt="Tailwind CSS" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
+                                    <span class="text-sm">Tailwind CSS</span>
+                                </div>
+                                <div class="bg-secondary-800/80 p-5 rounded-lg flex flex-col items-center hover:bg-secondary-700/80 transition">
+                                    <img src="./assets/images/tech-mysql.png" alt="MySQL" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
+                                    <span class="text-sm">MySQL</span>
+                                </div>
+                                <div class="bg-secondary-800/80 p-5 rounded-lg flex flex-col items-center hover:bg-secondary-700/80 transition">
+                                    <img src="./assets/images/tech-google-maps.png" alt="Google Maps API" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
+                                    <span class="text-sm">Google Maps API</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Resume Section -->
+                <section id="resume" class="mb-16">
+                    <div class="bg-secondary-800/50 backdrop-blur-md rounded-2xl p-6 lg:p-8">
+                        <h2 class="text-2xl font-bold mb-6 border-b border-secondary-700 pb-3">
+                            <span data-lang="ua">Резюме</span>
+                            <span data-lang="en" class="hidden">Resume</span>
+                        </h2>
+
+                        <!-- Experience -->
+                        <div class="mb-10">
+                            <div class="flex items-center mb-6">
+                                <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-briefcase text-primary-400"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold">
+                                    <span data-lang="ua">Досвід роботи</span>
+                                    <span data-lang="en" class="hidden">Experience</span>
+                                </h3>
+                            </div>
+
+                            <div class="ml-5 border-l-2 border-primary-700/30 pl-8 space-y-8">
+                                <!-- Job 1 -->
+                                <div class="relative">
+                                    <div class="absolute -left-10 mt-1 h-4 w-4 rounded-full bg-primary-600"></div>
+                                    <h4 class="text-lg font-medium">Full-Stack Developer | QA Engineer</h4>
+                                    <p class="text-primary-400 mb-2">
+                                        <span data-lang="ua">Київська служба порятунку (KLS), Київ | 2024 - Теперішній час</span>
+                                        <span data-lang="en" class="hidden">Kyiv Lifeguard Service (KLS), Kyiv | 2024 - Present</span>
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                        <li data-lang="ua">Розробка та впровадження модульної CRM-системи для управління рятувальниками</li>
+                                        <li data-lang="ua">Створення інтерактивної карти постів за допомогою Google Maps API</li>
+                                        <li data-lang="ua">Оптимізація продуктивності системи та впровадження PWA-функціоналу</li>
+                                        <li data-lang="ua">Тестування API та веб-додатків, розробка тест-кейсів та автоматизованих тестів</li>
+                                        <li data-lang="ua">Впровадження аутентифікації через Laravel Sanctum та ролей користувачів</li>
+                                        
+                                        <li data-lang="en" class="hidden">Development and implementation of a modular CRM system for lifeguard management</li>
+                                        <li data-lang="en" class="hidden">Creation of an interactive post map using Google Maps API</li>
+                                        <li data-lang="en" class="hidden">System performance optimization and implementation of PWA functionality</li>
+                                        <li data-lang="en" class="hidden">Testing API and web applications, developing test cases and automated tests</li>
+                                        <li data-lang="en" class="hidden">Implementation of authentication through Laravel Sanctum and user roles</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Job 2 -->
+                                <div class="relative">
+                                    <div class="absolute -left-10 mt-1 h-4 w-4 rounded-full bg-primary-600"></div>
+                                    <h4 class="text-lg font-medium">QA Engineer</h4>
+                                    <p class="text-primary-400 mb-2">
+                                        <span data-lang="ua">BBQ Chef, Зальцбург | 2023 - Теперішній час</span>
+                                        <span data-lang="en" class="hidden">BBQ Chef, Salzburg | 2023 - Present</span>
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                        <li data-lang="ua">Контроль якості веб-додатків, створення та виконання тест-кейсів</li>
+                                        <li data-lang="ua">Виправлення помилок у коді, тестування змін та оновлень</li>
+                                        <li data-lang="ua">Робота з Jira, TestRail, Postman</li>
+                                        
+                                        <li data-lang="en" class="hidden">Quality control of web applications, creation and execution of test cases</li>
+                                        <li data-lang="en" class="hidden">Fixing bugs in code, testing changes and updates</li>
+                                        <li data-lang="en" class="hidden">Working with Jira, TestRail, Postman</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Job 3 -->
+                                <div class="relative">
+                                    <div class="absolute -left-10 mt-1 h-4 w-4 rounded-full bg-primary-600"></div>
+                                    <h4 class="text-lg font-medium">QA Trainee</h4>
+                                    <p class="text-primary-400 mb-2">
+                                        <span data-lang="ua">Дія, Київ | 2023</span>
+                                        <span data-lang="en" class="hidden">Diia, Kyiv | 2023</span>
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                        <li data-lang="ua">Створення 87+ тест-кейсів, тестування державного порталу Дія</li>
+                                        <li data-lang="ua">Використання Postman для тестування API</li>
+                                        
+                                        <li data-lang="en" class="hidden">Creation of 87+ test cases, testing the Diia government portal</li>
+                                        <li data-lang="en" class="hidden">Using Postman for API testing</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Job 4 -->
+                                <div class="relative">
+                                    <div class="absolute -left-10 mt-1 h-4 w-4 rounded-full bg-primary-600"></div>
+                                    <h4 class="text-lg font-medium">WordPress Developer + QA Engineer</h4>
+                                    <p class="text-primary-400 mb-2">
+                                        <span data-lang="ua">Liki Ukraine, Київ | 2021 - 2023</span>
+                                        <span data-lang="en" class="hidden">Liki Ukraine, Kyiv | 2021 - 2023</span>
+                                    </p>
+                                    <ul class="list-disc list-inside text-gray-300 space-y-1">
+                                        <li data-lang="ua">Розробка front-end архітектури, покращення продуктивності сайтів</li>
+                                        <li data-lang="ua">Розробка та впровадження QA-процесів</li>
+                                        
+                                        <li data-lang="en" class="hidden">Development of front-end architecture, improving website performance</li>
+                                        <li data-lang="en" class="hidden">Development and implementation of QA processes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="mb-10">
+                            <div class="flex items-center mb-6">
+                                <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
+                                    <i class="fas fa-graduation-cap text-primary-400"></i>
+                                </div>
+                                <h3 class="text-xl font-semibold">
+                                    <span data-lang="ua">Освіта</span>
+                                    <span data-lang="en" class="hidden">Education</span>
+                                </h3>
+                            </div>
+
+                            <div class="ml-5 border-l-2 border-primary-700/30 pl-8 space-y-8">
+                                <!-- Education 1 -->
+                                <div class="relative">
+                                    <div class="absolute -left-10 mt-1 h-4 w-4 rounded-full bg-primary-600"></div>
+                                    <h4 class="text-lg font-medium">
+    <span data-lang="ua">Київський національний економічний університет</span>
+    <span data-lang="en" class="hidden">Kyiv National Economic University</span>
+</h4>
+<p class="text-primary-400 mb-2">
+    <span data-lang="ua">Аспірантура - Міжнародні економічні відносини | 2021 - Теперішній час</span>
+    <span data-lang="en" class="hidden">Postgraduate - International Economic Relations | 2021 - Present</span>
+</p>
+</div>
+
+<!-- Education 2 -->
+<div class="relative">
+<div class="absolute -left-10 mt-1 h-4 w-4 rounded-full bg-primary-600"></div>
+<h4 class="text-lg font-medium">
+    <span data-lang="ua">Київський національний економічний університет</span>
+    <span data-lang="en" class="hidden">Kyiv National Economic University</span>
+</h4>
+<p class="text-primary-400 mb-2">
+    <span data-lang="ua">Магістр - Міжнародний облік та аналіз | 2019 - 2021</span>
+    <span data-lang="en" class="hidden">Master - International Accounting and Analysis | 2019 - 2021</span>
+</p>
+</div>
+
+<!-- Education 3 -->
+<div class="relative">
+<div class="absolute -left-10 mt-1 h-4 w-4 rounded-full bg-primary-600"></div>
+<h4 class="text-lg font-medium">
+    <span data-lang="ua">Київський національний економічний університет</span>
+    <span data-lang="en" class="hidden">Kyiv National Economic University</span>
+</h4>
+<p class="text-primary-400 mb-2">
+    <span data-lang="ua">Бакалавр - Маркетинг | 2016 - 2019</span>
+    <span data-lang="en" class="hidden">Bachelor - Marketing | 2016 - 2019</span>
+</p>
+</div>
+</div>
+</div>
+
+<!-- Skills Graph -->
+<div class="mb-10">
+<div class="flex items-center mb-6">
+<div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
+<i class="fas fa-chart-bar text-primary-400"></i>
+</div>
+<h3 class="text-xl font-semibold">
+<span data-lang="ua">Професійні навички</span>
+<span data-lang="en" class="hidden">Professional Skills</span>
+</h3>
+</div>
+
+<div class="space-y-5">
+<!-- Skill 1 -->
+<div>
+<div class="flex justify-between mb-1">
+    <span class="text-base font-medium">Frontend (Vue.js, HTML, CSS, JS)</span>
+    <span class="text-sm font-medium">85%</span>
+</div>
+<div class="w-full bg-secondary-700 rounded-full h-2.5">
+    <div class="bg-gradient-to-r from-blue-500 to-primary-500 h-2.5 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+
+<!-- Skill 2 -->
+<div>
+<div class="flex justify-between mb-1">
+    <span class="text-base font-medium">Backend (PHP, Laravel)</span>
+    <span class="text-sm font-medium">80%</span>
+</div>
+<div class="w-full bg-secondary-700 rounded-full h-2.5">
+    <div class="bg-gradient-to-r from-blue-500 to-primary-500 h-2.5 rounded-full" style="width: 80%"></div>
+</div>
+</div>
+
+<!-- Skill 3 -->
+<div>
+<div class="flex justify-between mb-1">
+    <span class="text-base font-medium">
+        <span data-lang="ua">Тестування та QA</span>
+        <span data-lang="en" class="hidden">Testing and QA</span>
+    </span>
+    <span class="text-sm font-medium">90%</span>
+</div>
+<div class="w-full bg-secondary-700 rounded-full h-2.5">
+    <div class="bg-gradient-to-r from-blue-500 to-primary-500 h-2.5 rounded-full" style="width: 90%"></div>
+</div>
+</div>
+
+<!-- Skill 4 -->
+<div>
+<div class="flex justify-between mb-1">
+    <span class="text-base font-medium">
+        <span data-lang="ua">API інтеграції</span>
+        <span data-lang="en" class="hidden">API Integrations</span>
+    </span>
+    <span class="text-sm font-medium">75%</span>
+</div>
+<div class="w-full bg-secondary-700 rounded-full h-2.5">
+    <div class="bg-gradient-to-r from-blue-500 to-primary-500 h-2.5 rounded-full" style="width: 75%"></div>
+</div>
+</div>
+
+<!-- Skill 5 -->
+<div>
+<div class="flex justify-between mb-1">
+    <span class="text-base font-medium">WordPress</span>
+    <span class="text-sm font-medium">85%</span>
+</div>
+<div class="w-full bg-secondary-700 rounded-full h-2.5">
+    <div class="bg-gradient-to-r from-blue-500 to-primary-500 h-2.5 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Courses & Certifications -->
+<div>
+<div class="flex items-center mb-6">
+<div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
+<i class="fas fa-certificate text-primary-400"></i>
+</div>
+<h3 class="text-xl font-semibold">
+<span data-lang="ua">Курси та сертифікати</span>
+<span data-lang="en" class="hidden">Courses & Certifications</span>
+</h3>
+</div>
+
+<div class="ml-5 border-l-2 border-primary-700/30 pl-8 space-y-8">
+<!-- Course 1 -->
+<div class="relative">
+<div class="absolute -left-10 mt-1 h-4 w-4 rounded-full bg-primary-600"></div>
+<h4 class="text-lg font-medium">QA Engineer – SkillUp</h4>
+<p class="text-primary-400 mb-2">2023</p>
+</div>
+
+<!-- Course 2 -->
+<div class="relative">
+<div class="absolute -left-10 mt-1 h-4 w-4 rounded-full bg-primary-600"></div>
+<h4 class="text-lg font-medium">QA Engineer – GoIT</h4>
+<p class="text-primary-400 mb-2">2021</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="mb-16">
+<div class="bg-secondary-800/50 backdrop-blur-md rounded-2xl p-6 lg:p-8">
+<h2 class="text-2xl font-bold mb-6 border-b border-secondary-700 pb-3">
+<span data-lang="ua">Портфоліо</span>
+<span data-lang="en" class="hidden">Portfolio</span>
+</h2>
+
+<!-- Portfolio Filter -->
+<div class="flex flex-wrap gap-2 mb-8">
+<button class="filter-btn active py-2 px-4 rounded-md bg-primary-700 text-white" data-filter="all">
+<span data-lang="ua">Всі</span>
+<span data-lang="en" class="hidden">All</span>
+</button>
+<button class="filter-btn py-2 px-4 rounded-md bg-secondary-700 hover:bg-secondary-600 transition" data-filter="web">
+<span data-lang="ua">Web-розробка</span>
+<span data-lang="en" class="hidden">Web Development</span>
+</button>
+<button class="filter-btn py-2 px-4 rounded-md bg-secondary-700 hover:bg-secondary-600 transition" data-filter="crm">
+<span data-lang="ua">CRM-системи</span>
+<span data-lang="en" class="hidden">CRM Systems</span>
+</button>
+</div>
+
+<!-- Portfolio Projects -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Project 1 -->
+<div class="portfolio-item" data-category="crm">
+<div class="bg-secondary-700/30 rounded-xl overflow-hidden border border-secondary-700/50 hover:border-primary-600/50 transition group">
+<div class="relative overflow-hidden aspect-video">
+    <img src="./assets/images/project-kls.jpg" alt="CRM для рятувальної служби" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+    <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
+        <a href="#" class="bg-primary-600 text-white p-2 rounded-full">
+            <i class="fas fa-eye"></i>
+        </a>
+    </div>
+</div>
+<div class="p-5">
+    <h4 class="text-lg font-medium mb-1">
+        <span data-lang="ua">CRM для рятувальної служби</span>
+        <span data-lang="en" class="hidden">Lifeguard Service CRM</span>
+    </h4>
+    <p class="text-primary-400 text-sm">
+        <span data-lang="ua">CRM-системи</span>
+        <span data-lang="en" class="hidden">CRM Systems</span>
+    </p>
+</div>
+</div>
+</div>
+
+<!-- Project 2 -->
+<div class="portfolio-item" data-category="web">
+<div class="bg-secondary-700/30 rounded-xl overflow-hidden border border-secondary-700/50 hover:border-primary-600/50 transition group">
+<div class="relative overflow-hidden aspect-video">
+    <img src="./assets/images/project-liki.jpg" alt="Liki Ukraine" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+    <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
+        <a href="#" class="bg-primary-600 text-white p-2 rounded-full">
+            <i class="fas fa-eye"></i>
+        </a>
+    </div>
+</div>
+<div class="p-5">
+    <h4 class="text-lg font-medium mb-1">Liki Ukraine</h4>
+    <p class="text-primary-400 text-sm">
+        <span data-lang="ua">Web-розробка</span>
+        <span data-lang="en" class="hidden">Web Development</span>
+    </p>
+</div>
+</div>
+</div>
+
+<!-- Project 3 -->
+<div class="portfolio-item" data-category="web">
+<div class="bg-secondary-700/30 rounded-xl overflow-hidden border border-secondary-700/50 hover:border-primary-600/50 transition group">
+<div class="relative overflow-hidden aspect-video">
+    <img src="./assets/images/project-bbq.jpg" alt="BBQ Chef" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+    <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
+        <a href="#" class="bg-primary-600 text-white p-2 rounded-full">
+            <i class="fas fa-eye"></i>
+        </a>
+    </div>
+</div>
+<div class="p-5">
+    <h4 class="text-lg font-medium mb-1">BBQ Chef</h4>
+    <p class="text-primary-400 text-sm">
+        <span data-lang="ua">Web-розробка</span>
+        <span data-lang="en" class="hidden">Web Development</span>
+    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="mb-24 lg:mb-0">
+<div class="bg-secondary-800/50 backdrop-blur-md rounded-2xl p-6 lg:p-8">
+<h2 class="text-2xl font-bold mb-6 border-b border-secondary-700 pb-3">
+<span data-lang="ua">Контакти</span>
+<span data-lang="en" class="hidden">Contact</span>
+</h2>
+
+<!-- Map -->
+<div class="mb-10 rounded-xl overflow-hidden">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d162757.72582795525!2d30.392608824222073!3d50.402368200561994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf4ee15a4505%3A0x764931d2170146fe!2z0JrQuNGX0LIsIDAyMDAw!5e0!3m2!1suk!2sua!4v1708531151190!5m2!1suk!2sua" 
+width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" 
+referrerpolicy="no-referrer-when-downgrade" class="grayscale invert"></iframe>
+</div>
+
+<!-- Contact Form -->
+<div>
+<h3 class="text-xl font-semibold mb-6">
+<span data-lang="ua">Контактна форма</span>
+<span data-lang="en" class="hidden">Contact Form</span>
+</h3>
+
+<form id="contact-form" action="contact.php" method="POST" class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+    <label for="name" class="block text-sm font-medium mb-2 text-gray-300">
+        <span data-lang="ua">Ім'я</span>
+        <span data-lang="en" class="hidden">Name</span>
+    </label>
+    <input type="text" id="name" name="fullname" required
+          class="bg-secondary-900/70 border border-secondary-700 text-white rounded-lg block w-full p-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition">
+</div>
+<div>
+    <label for="email" class="block text-sm font-medium mb-2 text-gray-300">Email</label>
+    <input type="email" id="email" name="email" required
+          class="bg-secondary-900/70 border border-secondary-700 text-white rounded-lg block w-full p-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition">
+</div>
+</div>
+<div>
+<label for="message" class="block text-sm font-medium mb-2 text-gray-300">
+    <span data-lang="ua">Повідомлення</span>
+    <span data-lang="en" class="hidden">Message</span>
+</label>
+<textarea id="message" name="message" rows="5" required
+        class="bg-secondary-900/70 border border-secondary-700 text-white rounded-lg block w-full p-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition"></textarea>
+</div>
+<div>
+<button type="submit" id="submitBtn"
+        class="bg-primary-600 hover:bg-primary-700 transition text-white rounded-lg py-3 px-6 font-medium flex items-center justify-center">
+    <i class="fas fa-paper-plane mr-2"></i>
+    <span data-lang="ua">Надіслати повідомлення</span>
+    <span data-lang="en" class="hidden">Send Message</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</section>
+</main>
+</div>
+</div>
+
+<!-- Scripts -->
+<script>
+// Language Switcher
+const langUA = document.getElementById('lang-ua');
+const langEN = document.getElementById('lang-en');
+const elementsUA = document.querySelectorAll('[data-lang="ua"]');
+const elementsEN = document.querySelectorAll('[data-lang="en"]');
+
+function setLanguage(lang) {
+if (lang === 'ua') {
+langUA.classList.add('bg-primary-700');
+langUA.classList.remove('bg-secondary-800');
+langEN.classList.remove('bg-primary-700');
+langEN.classList.add('bg-secondary-800');
+
+elementsUA.forEach(el => el.classList.remove('hidden'));
+elementsEN.forEach(el => el.classList.add('hidden'));
+} else {
+langEN.classList.add('bg-primary-700');
+langEN.classList.remove('bg-secondary-800');
+langUA.classList.remove('bg-primary-700');
+langUA.classList.add('bg-secondary-800');
+
+elementsEN.forEach(el => el.classList.remove('hidden'));
+elementsUA.forEach(el => el.classList.add('hidden'));
+}
+}
+
+langUA.addEventListener('click', () => setLanguage('ua'));
+langEN.addEventListener('click', () => setLanguage('en'));
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 20,
+behavior: 'smooth'
+});
+
+// Update active state
+document.querySelectorAll('a').forEach(link => {
+if (link.getAttribute('href').startsWith('#')) {
+link.classList.remove('text-primary-400');
+link.classList.add('text-gray-400');
+}
+});
+
+this.classList.remove('text-gray-400');
+this.classList.add('text-primary-400');
+}
+});
+});
+
+// Portfolio filter
+const filterButtons = document.querySelectorAll('.filter-btn');
+const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+filterButtons.forEach(button => {
+button.addEventListener('click', () => {
+// Update active button
+filterButtons.forEach(btn => {
+btn.classList.remove('active');
+btn.classList.remove('bg-primary-700');
+btn.classList.add('bg-secondary-700');
+});
+button.classList.add('active');
+button.classList.add('bg-primary-700');
+button.classList.remove('bg-secondary-700');
+
+const filter = button.getAttribute('data-filter');
+
+portfolioItems.forEach(item => {
+if (filter === 'all' || item.getAttribute('data-category') === filter) {
+item.style.display = 'block';
+} else {
+item.style.display = 'none';
+}
+});
+});
+});
+
+// Contact form handling
+const contactForm = document.getElementById('contact-form');
+const submitBtn = document.getElementById('submitBtn');
+
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+
+const formData = new FormData(contactForm);
+
+// Change button state to loading
+const originalBtnContent = submitBtn.innerHTML;
+submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i><span data-lang="ua">Надсилання...</span><span data-lang="en" class="hidden">Sending...</span>';
+submitBtn.disabled = true;
+
+fetch('contact.php', {
+method: 'POST',
+body: formData
+})
+.then(response => response.json())
+.then(data => {
+if (data.success) {
+contactForm.reset();
+submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i><span data-lang="ua">Надіслано!</span><span data-lang="en" class="hidden">Sent!</span>';
+submitBtn.classList.remove('bg-primary-600');
+submitBtn.classList.add('bg-green-600');
+
+setTimeout(() => {
+submitBtn.innerHTML = originalBtnContent;
+submitBtn.classList.remove('bg-green-600');
+submitBtn.classList.add('bg-primary-600');
+submitBtn.disabled = false;
+}, 3000);
+} else {
+submitBtn.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i><span data-lang="ua">Помилка!</span><span data-lang="en" class="hidden">Error!</span>';
+submitBtn.classList.remove('bg-primary-600');
+submitBtn.classList.add('bg-red-600');
+
+setTimeout(() => {
+submitBtn.innerHTML = originalBtnContent;
+submitBtn.classList.remove('bg-red-600');
+submitBtn.classList.add('bg-primary-600');
+submitBtn.disabled = false;
+}, 3000);
+}
+})
+.catch(error => {
+submitBtn.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i><span data-lang="ua">Помилка!</span><span data-lang="en" class="hidden">Error!</span>';
+submitBtn.classList.remove('bg-primary-600');
+submitBtn.classList.add('bg-red-600');
+
+setTimeout(() => {
+submitBtn.innerHTML = originalBtnContent;
+submitBtn.classList.remove('bg-red-600');
+submitBtn.classList.add('bg-primary-600');
+submitBtn.disabled = false;
+}, 3000);
+});
+});
+
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+</body>
+</html>
