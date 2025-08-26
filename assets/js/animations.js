@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
   const timeline = anime.timeline({ easing: 'easeOutExpo', duration: 750 });
 
