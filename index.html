@@ -60,7 +60,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
@@ -68,8 +69,8 @@
 <body class="bg-pattern text-gray-100 font-sans">
     <!-- Language Switcher (Fixed) -->
     <div class="fixed top-4 right-4 z-50 flex space-x-2">
-        <button id="lang-ua" class="bg-primary-700 px-3 py-1 rounded text-sm font-medium hover:bg-primary-600 transition active">UA</button>
-        <button id="lang-en" class="bg-secondary-800 px-3 py-1 rounded text-sm font-medium hover:bg-secondary-700 transition">EN</button>
+        <button id="lang-ua" class="bg-primary-700 px-3 py-1 rounded text-sm font-medium hover:bg-primary-600 transition active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500" aria-label="Switch to Ukrainian">UA</button>
+        <button id="lang-en" class="bg-secondary-800 px-3 py-1 rounded text-sm font-medium hover:bg-secondary-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500" aria-label="Switch to English">EN</button>
     </div>
 
     <!-- Mobile Navigation -->
@@ -77,28 +78,28 @@
         <ul class="flex justify-around text-xs">
             <li>
                 <a href="#about" class="flex flex-col items-center py-3 text-primary-400">
-                    <i class="fas fa-user text-lg mb-1"></i>
+                    <i class="fas fa-user text-lg mb-1" aria-hidden="true"></i>
                     <span data-lang="ua">Про мене</span>
                     <span data-lang="en" class="hidden">About</span>
                 </a>
             </li>
             <li>
                 <a href="#resume" class="flex flex-col items-center py-3 text-gray-400 hover:text-primary-400 transition">
-                    <i class="fas fa-graduation-cap text-lg mb-1"></i>
+                    <i class="fas fa-graduation-cap text-lg mb-1" aria-hidden="true"></i>
                     <span data-lang="ua">Резюме</span>
                     <span data-lang="en" class="hidden">Resume</span>
                 </a>
             </li>
             <li>
                 <a href="#portfolio" class="flex flex-col items-center py-3 text-gray-400 hover:text-primary-400 transition">
-                    <i class="fas fa-briefcase text-lg mb-1"></i>
+                    <i class="fas fa-briefcase text-lg mb-1" aria-hidden="true"></i>
                     <span data-lang="ua">Портфоліо</span>
                     <span data-lang="en" class="hidden">Portfolio</span>
                 </a>
             </li>
             <li>
                 <a href="#contact" class="flex flex-col items-center py-3 text-gray-400 hover:text-primary-400 transition">
-                    <i class="fas fa-envelope text-lg mb-1"></i>
+                    <i class="fas fa-envelope text-lg mb-1" aria-hidden="true"></i>
                     <span data-lang="ua">Контакти</span>
                     <span data-lang="en" class="hidden">Contact</span>
                 </a>
@@ -123,28 +124,28 @@
                     <ul class="space-y-2">
                         <li>
                             <a href="#about" class="flex items-center space-x-3 p-2 rounded-lg bg-primary-700/20 text-primary-400 hover:bg-primary-700/30 transition">
-                                <i class="fas fa-user"></i>
+                                <i class="fas fa-user" aria-hidden="true"></i>
                                 <span data-lang="ua">Про мене</span>
                                 <span data-lang="en" class="hidden">About</span>
                             </a>
                         </li>
                         <li>
                             <a href="#resume" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-secondary-700/30 transition">
-                                <i class="fas fa-graduation-cap"></i>
+                                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
                                 <span data-lang="ua">Резюме</span>
                                 <span data-lang="en" class="hidden">Resume</span>
                             </a>
                         </li>
                         <li>
                             <a href="#portfolio" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-secondary-700/30 transition">
-                                <i class="fas fa-briefcase"></i>
+                                <i class="fas fa-briefcase" aria-hidden="true"></i>
                                 <span data-lang="ua">Портфоліо</span>
                                 <span data-lang="en" class="hidden">Portfolio</span>
                             </a>
                         </li>
                         <li>
                             <a href="#contact" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-secondary-700/30 transition">
-                                <i class="fas fa-envelope"></i>
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
                                 <span data-lang="ua">Контакти</span>
                                 <span data-lang="en" class="hidden">Contact</span>
                             </a>
@@ -157,14 +158,14 @@
                 <!-- Contact Information -->
                 <div class="space-y-4">
                     <div class="flex items-start space-x-3">
-                        <i class="fas fa-envelope-open-text mt-1 text-primary-400"></i>
+                        <i class="fas fa-envelope-open-text mt-1 text-primary-400" aria-hidden="true"></i>
                         <div>
                             <p class="text-xs text-gray-400 uppercase tracking-wide">Email</p>
                             <a href="mailto:galenkorp@gmail.com" class="hover:text-primary-400 transition">galenkorp@gmail.com</a>
                         </div>
                     </div>
                     <div class="flex items-start space-x-3">
-                        <i class="fas fa-phone-alt mt-1 text-primary-400"></i>
+                        <i class="fas fa-phone-alt mt-1 text-primary-400" aria-hidden="true"></i>
                         <div>
                             <p class="text-xs text-gray-400 uppercase tracking-wide" data-lang="ua">Телефон</p>
                             <p class="text-xs text-gray-400 uppercase tracking-wide hidden" data-lang="en">Phone</p>
@@ -172,7 +173,7 @@
                         </div>
                     </div>
                     <div class="flex items-start space-x-3">
-                        <i class="fas fa-map-marker-alt mt-1 text-primary-400"></i>
+                        <i class="fas fa-map-marker-alt mt-1 text-primary-400" aria-hidden="true"></i>
                         <div>
                             <p class="text-xs text-gray-400 uppercase tracking-wide" data-lang="ua">Місцезнаходження</p>
                             <p class="text-xs text-gray-400 uppercase tracking-wide hidden" data-lang="en">Location</p>
@@ -186,14 +187,14 @@
 
                 <!-- Social Links -->
                 <div class="flex justify-center space-x-4">
-                    <a href="https://github.com/yourusername" target="_blank" class="h-9 w-9 rounded-full bg-secondary-700 flex items-center justify-center hover:bg-primary-700 transition">
-                        <i class="fab fa-github"></i>
+                    <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub" class="h-9 w-9 rounded-full bg-secondary-700 flex items-center justify-center hover:bg-primary-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500">
+                        <i class="fab fa-github" aria-hidden="true"></i>
                     </a>
-                    <a href="https://linkedin.com/in/yourusername" target="_blank" class="h-9 w-9 rounded-full bg-secondary-700 flex items-center justify-center hover:bg-primary-700 transition">
-                        <i class="fab fa-linkedin-in"></i>
+                    <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn" class="h-9 w-9 rounded-full bg-secondary-700 flex items-center justify-center hover:bg-primary-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500">
+                        <i class="fab fa-linkedin-in" aria-hidden="true"></i>
                     </a>
-                    <a href="https://t.me/yourusername" target="_blank" class="h-9 w-9 rounded-full bg-secondary-700 flex items-center justify-center hover:bg-primary-700 transition">
-                        <i class="fab fa-telegram-plane"></i>
+                    <a href="https://t.me/yourusername" target="_blank" aria-label="Telegram" class="h-9 w-9 rounded-full bg-secondary-700 flex items-center justify-center hover:bg-primary-700 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500">
+                        <i class="fab fa-telegram-plane" aria-hidden="true"></i>
                     </a>
                 </div>
             </aside>
@@ -245,7 +246,7 @@
                                 <div class="bg-secondary-700/30 rounded-xl p-5 border border-secondary-700/50 hover:border-primary-600/50 transition">
                                     <div class="flex items-center mb-3">
                                         <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
-                                            <i class="fas fa-code text-primary-400"></i>
+                                            <i class="fas fa-code text-primary-400" aria-hidden="true"></i>
                                         </div>
                                         <h4 class="text-lg font-medium">
                                             <span data-lang="ua">Frontend Розробка</span>
@@ -260,7 +261,7 @@
                                 <div class="bg-secondary-700/30 rounded-xl p-5 border border-secondary-700/50 hover:border-primary-600/50 transition">
                                     <div class="flex items-center mb-3">
                                         <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
-                                            <i class="fas fa-database text-primary-400"></i>
+                                            <i class="fas fa-database text-primary-400" aria-hidden="true"></i>
                                         </div>
                                         <h4 class="text-lg font-medium">
                                             <span data-lang="ua">Backend Розробка</span>
@@ -275,7 +276,7 @@
                                 <div class="bg-secondary-700/30 rounded-xl p-5 border border-secondary-700/50 hover:border-primary-600/50 transition">
                                     <div class="flex items-center mb-3">
                                         <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
-                                            <i class="fas fa-bug text-primary-400"></i>
+                                            <i class="fas fa-bug text-primary-400" aria-hidden="true"></i>
                                         </div>
                                         <h4 class="text-lg font-medium">
                                             <span data-lang="ua">Тестування та QA</span>
@@ -290,7 +291,7 @@
                                 <div class="bg-secondary-700/30 rounded-xl p-5 border border-secondary-700/50 hover:border-primary-600/50 transition">
                                     <div class="flex items-center mb-3">
                                         <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
-                                            <i class="fas fa-mobile-alt text-primary-400"></i>
+                                            <i class="fas fa-mobile-alt text-primary-400" aria-hidden="true"></i>
                                         </div>
                                         <h4 class="text-lg font-medium">
                                             <span data-lang="ua">PWA Розробка</span>
@@ -312,23 +313,23 @@
 
                             <div class="flex flex-wrap gap-6 justify-center">
                                 <div class="bg-secondary-800/80 p-5 rounded-lg flex flex-col items-center hover:bg-secondary-700/80 transition">
-                                    <img src="./assets/images/tech-vue.png" alt="Vue.js" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
+                                    <img src="./assets/images/tech-vue.png" alt="Vue.js" loading="lazy" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
                                     <span class="text-sm">Vue.js</span>
                                 </div>
                                 <div class="bg-secondary-800/80 p-5 rounded-lg flex flex-col items-center hover:bg-secondary-700/80 transition">
-                                    <img src="./assets/images/tech-laravel.png" alt="Laravel" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
+                                    <img src="./assets/images/tech-laravel.png" alt="Laravel" loading="lazy" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
                                     <span class="text-sm">Laravel</span>
                                 </div>
                                 <div class="bg-secondary-800/80 p-5 rounded-lg flex flex-col items-center hover:bg-secondary-700/80 transition">
-                                    <img src="./assets/images/tech-tailwind.png" alt="Tailwind CSS" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
+                                    <img src="./assets/images/tech-tailwind.png" alt="Tailwind CSS" loading="lazy" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
                                     <span class="text-sm">Tailwind CSS</span>
                                 </div>
                                 <div class="bg-secondary-800/80 p-5 rounded-lg flex flex-col items-center hover:bg-secondary-700/80 transition">
-                                    <img src="./assets/images/tech-mysql.png" alt="MySQL" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
+                                    <img src="./assets/images/tech-mysql.png" alt="MySQL" loading="lazy" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
                                     <span class="text-sm">MySQL</span>
                                 </div>
                                 <div class="bg-secondary-800/80 p-5 rounded-lg flex flex-col items-center hover:bg-secondary-700/80 transition">
-                                    <img src="./assets/images/tech-google-maps.png" alt="Google Maps API" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
+                                    <img src="./assets/images/tech-google-maps.png" alt="Google Maps API" loading="lazy" class="h-12 mb-2 grayscale hover:grayscale-0 transition">
                                     <span class="text-sm">Google Maps API</span>
                                 </div>
                             </div>
@@ -348,7 +349,7 @@
                         <div class="mb-10">
                             <div class="flex items-center mb-6">
                                 <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
-                                    <i class="fas fa-briefcase text-primary-400"></i>
+                                    <i class="fas fa-briefcase text-primary-400" aria-hidden="true"></i>
                                 </div>
                                 <h3 class="text-xl font-semibold">
                                     <span data-lang="ua">Досвід роботи</span>
@@ -439,7 +440,7 @@
                         <div class="mb-10">
                             <div class="flex items-center mb-6">
                                 <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
-                                    <i class="fas fa-graduation-cap text-primary-400"></i>
+                                    <i class="fas fa-graduation-cap text-primary-400" aria-hidden="true"></i>
                                 </div>
                                 <h3 class="text-xl font-semibold">
                                     <span data-lang="ua">Освіта</span>
@@ -493,7 +494,7 @@
 <div class="mb-10">
 <div class="flex items-center mb-6">
 <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
-<i class="fas fa-chart-bar text-primary-400"></i>
+<i class="fas fa-chart-bar text-primary-400" aria-hidden="true"></i>
 </div>
 <h3 class="text-xl font-semibold">
 <span data-lang="ua">Професійні навички</span>
@@ -569,7 +570,7 @@
 <div>
 <div class="flex items-center mb-6">
 <div class="h-10 w-10 bg-primary-700/20 rounded-lg flex items-center justify-center mr-3">
-<i class="fas fa-certificate text-primary-400"></i>
+<i class="fas fa-certificate text-primary-400" aria-hidden="true"></i>
 </div>
 <h3 class="text-xl font-semibold">
 <span data-lang="ua">Курси та сертифікати</span>
@@ -606,15 +607,15 @@
 
 <!-- Portfolio Filter -->
 <div class="flex flex-wrap gap-2 mb-8">
-<button class="filter-btn active py-2 px-4 rounded-md bg-primary-700 text-white" data-filter="all">
+<button class="filter-btn active py-2 px-4 rounded-md bg-primary-700 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500" data-filter="all" aria-label="Show all projects">
 <span data-lang="ua">Всі</span>
 <span data-lang="en" class="hidden">All</span>
 </button>
-<button class="filter-btn py-2 px-4 rounded-md bg-secondary-700 hover:bg-secondary-600 transition" data-filter="web">
+<button class="filter-btn py-2 px-4 rounded-md bg-secondary-700 hover:bg-secondary-600 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500" data-filter="web" aria-label="Filter web projects">
 <span data-lang="ua">Web-розробка</span>
 <span data-lang="en" class="hidden">Web Development</span>
 </button>
-<button class="filter-btn py-2 px-4 rounded-md bg-secondary-700 hover:bg-secondary-600 transition" data-filter="crm">
+<button class="filter-btn py-2 px-4 rounded-md bg-secondary-700 hover:bg-secondary-600 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500" data-filter="crm" aria-label="Filter CRM projects">
 <span data-lang="ua">CRM-системи</span>
 <span data-lang="en" class="hidden">CRM Systems</span>
 </button>
@@ -626,10 +627,10 @@
 <div class="portfolio-item" data-category="crm">
 <div class="bg-secondary-700/30 rounded-xl overflow-hidden border border-secondary-700/50 hover:border-primary-600/50 transition group">
 <div class="relative overflow-hidden aspect-video">
-    <img src="./assets/images/project-kls.jpg" alt="CRM для рятувальної служби" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+    <img src="./assets/images/project-kls.jpg" alt="CRM для рятувальної служби" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
     <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
-        <a href="#" class="bg-primary-600 text-white p-2 rounded-full">
-            <i class="fas fa-eye"></i>
+        <a href="#" class="bg-primary-600 text-white p-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white" aria-label="View project">
+            <i class="fas fa-eye" aria-hidden="true"></i>
         </a>
     </div>
 </div>
@@ -650,10 +651,10 @@
 <div class="portfolio-item" data-category="web">
 <div class="bg-secondary-700/30 rounded-xl overflow-hidden border border-secondary-700/50 hover:border-primary-600/50 transition group">
 <div class="relative overflow-hidden aspect-video">
-    <img src="./assets/images/project-liki.jpg" alt="Liki Ukraine" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+    <img src="./assets/images/project-liki.jpg" alt="Liki Ukraine" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
     <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
-        <a href="#" class="bg-primary-600 text-white p-2 rounded-full">
-            <i class="fas fa-eye"></i>
+        <a href="#" class="bg-primary-600 text-white p-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white" aria-label="View project">
+            <i class="fas fa-eye" aria-hidden="true"></i>
         </a>
     </div>
 </div>
@@ -671,10 +672,10 @@
 <div class="portfolio-item" data-category="web">
 <div class="bg-secondary-700/30 rounded-xl overflow-hidden border border-secondary-700/50 hover:border-primary-600/50 transition group">
 <div class="relative overflow-hidden aspect-video">
-    <img src="./assets/images/project-bbq.jpg" alt="BBQ Chef" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+    <img src="./assets/images/project-bbq.jpg" alt="BBQ Chef" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
     <div class="absolute inset-0 bg-gradient-to-t from-secondary-900 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-4">
-        <a href="#" class="bg-primary-600 text-white p-2 rounded-full">
-            <i class="fas fa-eye"></i>
+        <a href="#" class="bg-primary-600 text-white p-2 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white" aria-label="View project">
+            <i class="fas fa-eye" aria-hidden="true"></i>
         </a>
     </div>
 </div>
@@ -738,9 +739,9 @@ referrerpolicy="no-referrer-when-downgrade" class="grayscale invert"></iframe>
         class="bg-secondary-900/70 border border-secondary-700 text-white rounded-lg block w-full p-3 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition"></textarea>
 </div>
 <div>
-<button type="submit" id="submitBtn"
-        class="bg-primary-600 hover:bg-primary-700 transition text-white rounded-lg py-3 px-6 font-medium flex items-center justify-center">
-    <i class="fas fa-paper-plane mr-2"></i>
+<button type="submit" id="submitBtn" aria-label="Send message"
+        class="bg-primary-600 hover:bg-primary-700 transition text-white rounded-lg py-3 px-6 font-medium flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500">
+    <i class="fas fa-paper-plane mr-2" aria-hidden="true"></i>
     <span data-lang="ua">Надіслати повідомлення</span>
     <span data-lang="en" class="hidden">Send Message</span>
 </button>
@@ -851,7 +852,7 @@ const formData = new FormData(contactForm);
 
 // Change button state to loading
 const originalBtnContent = submitBtn.innerHTML;
-submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i><span data-lang="ua">Надсилання...</span><span data-lang="en" class="hidden">Sending...</span>';
+submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2" aria-hidden="true"></i><span data-lang="ua">Надсилання...</span><span data-lang="en" class="hidden">Sending...</span>';
 submitBtn.disabled = true;
 
 fetch('contact.php', {
@@ -862,7 +863,7 @@ body: formData
 .then(data => {
 if (data.success) {
 contactForm.reset();
-submitBtn.innerHTML = '<i class="fas fa-check mr-2"></i><span data-lang="ua">Надіслано!</span><span data-lang="en" class="hidden">Sent!</span>';
+    submitBtn.innerHTML = '<i class="fas fa-check mr-2" aria-hidden="true"></i><span data-lang="ua">Надіслано!</span><span data-lang="en" class="hidden">Sent!</span>';
 submitBtn.classList.remove('bg-primary-600');
 submitBtn.classList.add('bg-green-600');
 
@@ -873,7 +874,7 @@ submitBtn.classList.add('bg-primary-600');
 submitBtn.disabled = false;
 }, 3000);
 } else {
-submitBtn.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i><span data-lang="ua">Помилка!</span><span data-lang="en" class="hidden">Error!</span>';
+    submitBtn.innerHTML = '<i class="fas fa-exclamation-circle mr-2" aria-hidden="true"></i><span data-lang="ua">Помилка!</span><span data-lang="en" class="hidden">Error!</span>';
 submitBtn.classList.remove('bg-primary-600');
 submitBtn.classList.add('bg-red-600');
 
@@ -886,7 +887,7 @@ submitBtn.disabled = false;
 }
 })
 .catch(error => {
-submitBtn.innerHTML = '<i class="fas fa-exclamation-circle mr-2"></i><span data-lang="ua">Помилка!</span><span data-lang="en" class="hidden">Error!</span>';
+submitBtn.innerHTML = '<i class="fas fa-exclamation-circle mr-2" aria-hidden="true"></i><span data-lang="ua">Помилка!</span><span data-lang="en" class="hidden">Error!</span>';
 submitBtn.classList.remove('bg-primary-600');
 submitBtn.classList.add('bg-red-600');
 
