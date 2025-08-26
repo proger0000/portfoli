@@ -1,22 +1,22 @@
-export function initScrollAnimations() {
-  const elements = document.querySelectorAll('.skill-item, .timeline-item, .portfolio-item');
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        anime({
-          targets: entry.target,
-          opacity: [0, 1],
-          translateY: [30, 0],
-          duration: 800
-        });
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.2 });
+document.addEventListener('DOMContentLoaded', () => {
+  const timeline = anime.timeline({ easing: 'easeOutExpo', duration: 750 });
 
-  elements.forEach(el => {
-    el.style.opacity = 0;
-    observer.observe(el);
-  });
-}
+  timeline
+    .add({
+      targets: 'h1',
+      opacity: [0, 1],
+      translateY: [-20, 0]
+    })
+    .add({
+      targets: 'img[alt="Peter Galenko"]',
+      opacity: [0, 1],
+      scale: [0.8, 1]
+    }, '-=400')
+    .add({
+      targets: 'nav a',
+      opacity: [0, 1],
+      translateY: [10, 0],
+      delay: anime.stagger(100)
+    }, '-=400');
+});
